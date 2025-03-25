@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pelotas.css') }}">
+    
+    
+
+</head>
+<body> <!-- Como sabemos si tenemos bootstrap intalado? Facil, hagamos un div container -->
+    <div class="container" > 
+        <h1 class= "mt-2 p-2 tect-center">Juguemos a las pelotas</h1> <!-- mt-5=margin top 5 para que no quede pegado arriba del texto. p-5= pading de 5 por todos lados-->
+        <hr/>
+
+        <div class="contenedor-pelotas">
+            {% for x in range (contador) %}
+            <div class="pelota"></div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+</html>

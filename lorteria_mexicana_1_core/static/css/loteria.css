@@ -1,0 +1,13 @@
+.tablero {
+        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(4, 150px);
+        grid-template-columns: repeat(4, 100px);
+        gap: 3px;
+        justify-content: center;
+}
+
+h1 {
+    margin-top: 50px;
+    color: #333;
+}
