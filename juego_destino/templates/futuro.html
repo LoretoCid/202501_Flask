@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Futuro</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos.css') }}">
+    
+
+</head>
+<body> 
+    <h2>¡Tu futuro segun el adivino</h2>   
+    <!-- <p>“Soy el adivino del Dojo, <span class="negrita green">{{ nombre }}</span> tendrá un viaje muy largo dentro de <span class="negrita blue">{{ numero }}</span>
+        años a <span class="negrita yellow">{{ lugar }}</span> y estará el resto de sus días preparando <span class="negrita turquoise">{{ comida }}</span>.
+        para todas las personas que quiere. Cambio de profesión y ahora es <span class="negrita">{{ profesion }}</span>”</p>-->
+        <p>{{ mensaje }}</p>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+</html>

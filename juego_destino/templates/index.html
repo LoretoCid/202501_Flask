@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Futuro</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos.css') }}">
+    
+
+</head>
+<body>
+    <div class="text-center">
+        <h2>¿Quieres conocer tu futuro?</h2>
+        <p>Coloca las respuestas y te diremos tu destino</p>
+    </div>
+    <hr/>
+    <div class="form-container">
+        <form action="/enviar" method= "POST">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="numero" class="form-label">Numero:</label>
+                <input type="number" class="form-control" id="numero" name="numero" required>
+            </div>
+            <div class="mb-3">
+                <label for="lugar" class="form-label">Lugar:</label>
+                <input type="text" class="form-control" id="lugar" name="lugar" required>
+            </div>
+            <div class="mb-3">
+                <label for="comida" class="form-label">Comida Preferida:</label>
+                <input type="text" class="form-control" id="comida" name="comida" required>
+            </div>
+            <div class="mb-3">
+                <label for="profesion" class="form-label">Profesión:</label>
+                <select class="form-select" id="profesion" name="profesion" required>
+                    <option value="Ingeniero">Ingeniero</option>
+                    <option value="Doctor">Doctor</option>
+                    <option value="Artista">Artista</option>
+                    <option value="Chef">Chef</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+</body>
+</html>
