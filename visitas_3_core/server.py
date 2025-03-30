@@ -3,30 +3,37 @@ from flask import Flask, render_template, request, redirect, session
 app = Flask(__name__)
 app.secret_key = "Prueba 3"
 
-@app.route('/')
-def home():
-    if 'visitas' in session:
-        session['visitas'] += 1 
-    else:
-        session['visitas'] = 1 
-    visitas = session['visitas'] 
-    return render_template('visitas.html', visitas=visitas)
+@app.route("/")
+def index():
+    if 'visitas' not in session:
+        session['visitas'] = 0
+    if 'reinicios' not in session:
+        session['reinicios'] = 0
+    session['visitas'] += 1
+    return render_template("visitas.html", visitas=session['visitas'], reinicios=session['reinicios'])
 
-@app.route('/crear_usuario', methods=['POST'])
-def crear_usuario():
-    print("Recibiendo información")
-    print(request.form)
-    session['nombre_usuario'] = request.form['nombre']
-    session['email_usuario'] = request.form['email']
-    return redirect('/mostrar_usuario')
+@app.route("/destruir_sesion")
+def destruir_sesion():
+    session.clear()
+    return redirect("/")
 
-@app.route('/mostrar_usuario')
+@app.route("/aumentar_visitas")
+def aumentar_visitas():
+    session['visitas'] += 2
+    return redirect("/")
 
-def mostrar_usuario():
-    print("Usuario redirigido")
-    print(session['nombre_usuario'])    
-    print(session['email_usuario'])
-    return render_template("visitas.html")
+@app.route("/reiniciar_visitas")
+def reiniciar_visitas():
+    session['visitas'] = 0
+    session['reinicios'] += 1
+    return redirect("/")
+
+@app.route("/formulario_cantidad", methods=["POST"])
+def formulario_cantidad():
+    cantidad = request.form.get("cantidad")
+    if cantidad:
+        session['visitas'] += int(cantidad)
+    return redirect("/")
 
 
 if __name__=="__main__":   
